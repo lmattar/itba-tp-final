@@ -1,1 +1,1 @@
-INSERT INTO users(username,firstname,lastname,country,password)VALUES('greengorilla998','Jeffery','Burton','United Kingdom','losers');
+INSERT INTO users(username,firstname,lastname,country,password)VALUES('sadcat265','Tilde','Christensen','Denmark','monty');
