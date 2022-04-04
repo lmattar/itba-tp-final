@@ -15,5 +15,14 @@ en S3.
 
 ## Arquitectura 
 
+![Arquitectura](images/arquitectura.jpg)
 
-Configuracon airflow con docker //>https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html#docker-compose-yaml
+## DAG 
+![DAG](images/DAG.jpg)
+
+
+## Visualizaciones
+Linea de tiempo que muestra los promedios de retraso. Se puede observar a simple vista que los ultimos dias el año, en particular 23 de diceimbre, el promedio de retraso aumenta considerablemente.   
+![DAG](images/SupersetTimeLine.jpg)
+Tree Map que visualiza los aeropuertos segun el promedio de retraso.
+![DAG](images/supersetTreeMap.jpg)
