@@ -69,16 +69,17 @@ def detect_outlier(data_1):
 
 with open(f'/opt/airflow/dags/sql/update_outliers_{year}.sql','w'):
   for row_label, row in df_grp.iterrows():
-      #print(row_label[0])
-      #print(row_label[1])
+      print(row_label[0])
+      print(row_label[1])
       df_f = df[df["ORIGIN"]==row_label[0]]
+      print(df.head(10))
       df1 = df_f[["DEP_DELAY"]]
       #print(type(np.array(df_f)))
       #print(f"outliers--> ORIGIN: {row_label[0]} DATE : {row_label[1]}")
       ot = detect_outlier(np.array(df1))
       print(ot)
       if len(ot)>0:
-        print(f"UPDATE flights_per_day SET = {len(ot)} WHERE ORIGIN=\"{row_label[0]}\" AND FL_DATE=\"{row_label[1]}\";",file=open(f'/opt/airflow/dags/sql/update_outliers_{year}.sql','a'))
+        print(f"UPDATE flights_per_day SET outliers = {len(ot)} WHERE ORIGIN=\"{row_label[0]}\" AND FL_DATE=\"{row_label[1]}\";",file=open(f'/opt/airflow/dags/sql/update_outliers_{year}.sql','a'))
         #print(s)    
 
 

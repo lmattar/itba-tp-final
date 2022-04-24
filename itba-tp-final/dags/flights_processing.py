@@ -86,6 +86,7 @@ with DAG('flights-processing-dag'
     get_insert_task={}
     get_data_task_1 ={}
     get_insert_task_1={}
+    get_update_task ={}
     for year in years:
           get_data_task[year] = S3FileTransformOperator(
                                     task_id=f"transform_file_over_{year}",
@@ -117,6 +118,12 @@ with DAG('flights-processing-dag'
                 ,postgres_conn_id='postgres_target'
                 ,sql=f'/sql/inserts_per_day_{year}.sql', 
             )
+        
+          get_update_task[year] = PostgresOperator(
+                task_id = f'update_outliers_{year}'
+                ,postgres_conn_id='postgres_target'
+                ,sql=f'/sql/update_outliers_{year}.sql', 
+            )
 
 
 
@@ -128,7 +135,10 @@ with DAG('flights-processing-dag'
         upstream_task.set_downstream(task)
         upstream_task.set_downstream(task1)
         task.set_downstream(get_insert_task[year] )
-        task1.set_downstream(get_insert_task_1[year] )
+        task1.set_downstream(get_insert_task_1[year])
+        task2 = get_insert_task_1[year]
+        task2.set_downstream(get_update_task[year])
+
 
     # print_path = PythonOperator(
     #     task_id = 'print_path'
