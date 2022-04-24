@@ -26,3 +26,7 @@ Linea de tiempo que muestra los promedios de retraso. Se puede observar a simple
 ![DAG](images/SupersetTimeLine.jpg)
 Tree Map que visualiza los aeropuertos segun el promedio de retraso.
 ![DAG](images/supersetTreeMap.jpg)
+
+## Outliers
+Cantidad de vuelos por dia en eje izquierdo versus outliers en eje derecho
+![DAG](images/fl_count_vs_outliers_2009.jpg)
