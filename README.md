@@ -18,7 +18,7 @@ en S3.
 ![Arquitectura](images/arquitectura.jpg)
 
 ## DAG 
-![DAG](images/DAG.jpg)
+![DAG](images/DAG_1.jpg)
 
 
 ## Visualizaciones
